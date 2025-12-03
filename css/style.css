@@ -1,0 +1,1311 @@
+@charset "utf-8";
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: Didot, "Didot LT STD", "Bodoni MT", serif;
+    line-height: 1.5;
+    background-color: #e0e0e0;
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+}
+
+/* アニメーションの定義 */
+.wrap {
+	animation: fadein 4s forwards;
+}
+
+@keyframes fadein {
+	0% {
+        opacity: 0; /* 開始時は透明 */
+    }
+	100% {
+        opacity: 1; /* 終了時は不透明 */
+    }
+}
+
+/* トップページ */
+.home-page {
+    height: 100vh; 
+    overflow: hidden;
+}
+
+.profile-image-sp{
+    display: block;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1; 
+    overflow: hidden;
+    background-image: url(../img/graphic_No3.jpeg); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.profile-image-sp img {
+    display: none;
+}
+
+/* ローディング画面　*/
+#loading-screen{
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 4.0s ease, visibility 0s 4.0s;
+}
+
+.loading-text{
+    color: #000;
+    font-size: 2rem;
+    margin: 0;
+    padding-left: 25px;
+}
+
+.loaded {
+    opacity: 0 !important; 
+    visibility: hidden !important;
+}
+/* ローディング画面 */
+
+.header{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.nav{
+    padding-top: 25px;
+    padding-right: 25px;
+}
+
+.nav-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: block;
+    writing-mode: vertical-rl;
+    padding-top: 13.5px;
+    padding-bottom: 13.5px;
+    padding-left: 0; 
+    padding-right: 0;
+    font-weight: normal;
+}
+
+.nav-list a:hover {
+    opacity: 0.7;
+}
+
+.main-content{
+    color: #fff;
+    bottom: 25px;
+    padding: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+h1{
+    color: #fff;
+    writing-mode: vertical-rl;
+    font-size: 4.8rem;
+    margin: 0;
+    margin-bottom: 25px;
+    font-weight: normal;
+   padding-left: -25px;
+   margin-left: -20px;
+   padding-right: 0;
+   width: fit-content;
+}
+
+h1 .sub-text {
+    font-size: 3.2rem;
+    display: inline-block;
+    position: relative;
+    top: 0.5rem; 
+    left: -0.5rem; 
+}
+
+.lead-text{
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.lead-text p {
+    margin: 0;
+    padding-top: 3.5px;
+    padding-bottom: 3.5px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* pcのみ表示 */
+
+.profile-image-pc{
+    display: none; 
+    width: 180px; 
+    height: 286px; 
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 80px;
+    margin-left: 120px;
+}
+
+.profile-image-pc img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lead-text-pc {
+    display: none;
+}
+
+
+@media (min-width: 1350px) {
+.home-page {
+    background-image: none;
+    background-color: #e0e0e0; 
+    background-position: right;
+    height: 100vh;
+    overflow: hidden; 
+}
+
+.profile-image-pc{
+    display: block; /* PC時のみ表示 */
+    position: fixed; /* 画面に固定 */
+    bottom: 80px; 
+    left: 120px; 
+    width: 180px; 
+    height: 286px; 
+    overflow: hidden;
+    border-radius: 5px;
+    margin: 0; 
+    border-radius: 20px 20px 20px 20px; 
+}
+
+.profile-image-sp {
+    display: block !important; 
+    width: 558px; 
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0; 
+    left: auto; 
+    z-index: 1; 
+
+    background-color: #e0e0e0; 
+    border-radius: 50px 0 0 50px; 
+    background-image: url(../img/graphic_No3.jpeg); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.home-page {
+    background-image: none;
+    background-color: #e0e0e0; 
+    background-position: right;
+}
+
+.main-content{
+    position: static; /* h1がbodyを基準にするように変更 */
+    padding: 0;
+    margin-left: 0; 
+    color: #000; 
+}
+
+h1 {
+    color: #000;
+    writing-mode: horizontal-tb; 
+    font-size: 120px; 
+    font-weight: normal;
+    /* bottom: 80px + 286px + 300px = 666px */
+    position: absolute; 
+    bottom: 550px; 
+    left: 120px; 
+    margin: 0; 
+    border-bottom: 1px solid #000; 
+    padding-bottom: 1px;
+}
+
+h1 .sub-text {
+    font-size: 90px; 
+    top: 0; 
+    left: 0; 
+}
+
+.lead-text{ 
+    display: none;
+    left: 420px; 
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.5; 
+    color: #000;
+}
+
+.lead-text-pc {
+    display: block; /* PC時のみ表示 */
+    position: absolute; /* absoluteに戻す */
+    top: calc(100vh - 460px); 
+    left: 330px; 
+    margin: 0;
+    color: #000; 
+    font-size: 1.6rem;
+    line-height: 1.5;
+    width: 400px;
+    overflow: hidden;
+    padding-left: 30px;
+    z-index: 50;
+}
+
+.lead-text-pc::before {
+    content: ""; /* 必須 */
+    position: absolute;
+    top: 0;
+    left: 0; 
+    height: 100%;
+    width: 1px; /* 縦線の太さ */
+    background-color: #000;
+    z-index: 2;
+}
+
+.lead-text-pc dt, .lead-text-pc dd {
+    display: table-cell;
+    margin-top: 0; 
+    margin-bottom: 0; 
+    vertical-align: top; 
+    padding-bottom: 0;
+}
+
+.lead-text-pc dt {
+    width: 150px; 
+    font-weight: normal;
+    padding-left: 3px; /* dtとddの間隔 */
+    padding-left: 0;
+}
+
+.lead-text-pc dd {
+    display: block; 
+    margin-left: 0;
+    margin-bottom: 5px; 
+    padding-left: 135px; 
+    margin-top: -20px;   /* ddの1行目をdtの行に戻すためのネガティブマージン（値は適宜調整） */
+}
+
+.lead-text-pc dd ul {
+    display: block; 
+    list-style: none;
+    padding-left: 0;
+    margin: 0px 0 0;
+}
+
+.lead-text-pc dd ul li {
+    padding: 0;
+    margin-bottom: 7px;
+    line-height: 1.5;
+}
+}
+
+/* galery  */
+/* アニメーション */
+.global-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50; 
+    padding: 5px 30px 0 30px; 
+    box-sizing: border-box;
+}
+
+.global-header a[href="index.html"]{
+    display: block;
+}
+
+.global-header a[href="index.html"] img{
+    height: 44px;
+    width: 38px;
+    object-fit: contain;
+    display: block;
+}
+
+.globalnav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; 
+    gap: 20px; 
+}
+
+.globalnav-list li a {
+    color: #000; 
+    text-decoration: none;
+    font-size: 1.2rem; 
+    display: block;
+    font-weight: normal;
+    padding: 0;
+}
+
+.globalnav-list li a:hover {
+    opacity: 0.7;
+}
+
+main{
+    padding-top: 100px;
+    margin: 0 30px;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); 
+    grid-auto-rows: 32px !important;
+
+    position: relative;
+    z-index: 5;
+    margin-bottom: 50px;
+}
+
+.gallery-item {
+    position: relative; 
+}
+
+.gallery-item img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    
+    position: relative; 
+    
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 1s ease-in-out;
+    transform: scale(0.9);
+    opacity: 0.1;
+
+    padding-top: 30px;
+    
+    will-change: transform, opacity; 
+    pointer-events: none;
+}
+
+.gallery-item.is-scaled img {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.gallery-item {
+    position: relative; 
+    transition: box-shadow 0.3s ease-out;
+}
+
+.reset-hover .gallery-item img {
+    transform: scale(1) !important;
+    transition: none !important;
+}
+
+.gallery-item img.is-visible {
+    transform: scale(1); 
+    opacity: 1; 
+}
+
+
+
+/* size1: 最も幅広のアイテム (180*288px) */
+.size1 {
+    grid-column: span 6;
+    grid-row-end: span 9; 
+}
+
+/* size2: 中間の幅のアイテム (140*224) */
+.size2 {
+    grid-column: span 4; 
+    grid-row-end: span 7;
+}
+
+/* size3: 最も幅の狭いアイテム (100*160) */
+.size3 {
+    grid-column: span 3;
+    grid-row-end: span 5;
+}
+
+/* --- 3. 不規則配置 (全26アイテム) --- */
+/* 1. size1 (幅6 / 高さ26) */
+.item1 { 
+    grid-column: 2 / span 6; 
+    grid-row-start: 1; 
+}
+
+/* 2. size3 (幅3 / 高さ15) */
+.item2 { 
+    grid-column: 9 / span 3; 
+    grid-row-start: 3; 
+}
+
+/* 3. size3 (幅3 / 高さ15) */
+.item3 { 
+    grid-column: 3 / span 3; 
+    grid-row-start: 12; 
+}
+
+/* 4. size2 (幅4 / 高さ20) */
+.item4 { 
+    grid-column: 8 / span 4; 
+    grid-row-start: 11; 
+}
+
+/* 5. size2 (幅4 / 高さ20) */
+.item5 { 
+    grid-column: 3 / span 4; 
+    grid-row-start: 18; 
+}
+
+/* 6. size3 (幅3 / 高さ15) */
+.item6 { 
+    grid-column: 9 / span 3; 
+    grid-row-start: 19; 
+}
+
+/* 7. size1 (幅6 / 高さ26) */
+.item7 { 
+    grid-column: 7 / span 6; 
+    grid-row-start: 29; 
+}
+
+/* 8. size2 (幅4 / 高さ20) */
+.item8 { 
+    grid-column: 2 / span 4; 
+    grid-row-start: 31; 
+}
+
+/* 9. size2 (幅4 / 高さ20) */
+.item9 { 
+    grid-column: 3 / span 4; 
+    grid-row-start: 39; 
+}
+
+/* 10. size3 (幅3 / 高さ15) */
+.item10 { 
+    grid-column: 8 / span 3; 
+    grid-row-start: 40; 
+}
+
+/* 11. size1 (幅6 / 高さ26) */
+.item11 { 
+    grid-column: 2 / span 6; 
+    grid-row-start: 50; 
+}
+
+/* 12. size2 (幅4 / 高さ20) */
+.item12 { 
+    grid-column: 9 / span 4; 
+    grid-row-start: 48; 
+}
+
+/* 13. size3 (幅3 / 高さ15) */
+.item13 { 
+    grid-column: 9/ span 3; 
+    grid-row-start: 56; 
+}
+
+/* 14. size2 (幅4 / 高さ20) */
+.item14 { 
+    grid-column: 8 / span 4; 
+    grid-row-start: 66; 
+}
+
+/* 15. size1 (幅6 / 高さ26) */
+.item15 { 
+    grid-column: 1 / span 6; 
+    grid-row-start: 65; 
+}
+
+/* 16. size2 (幅4 / 高さ20) */
+.item16 { 
+    grid-column: 2 / span 4; 
+    grid-row-start: 77; 
+}
+
+/* 17. size1 (幅6 / 高さ26) */
+.item17 { 
+    grid-column: 7 / span 6; 
+    grid-row-start: 76; 
+}
+
+/* 18. size2 (幅4 / 高さ20) */
+.item18 { 
+    grid-column: 7 / span 4; 
+    grid-row-start: 88; 
+}
+
+/* 19. size2 (幅4 / 高さ20) */
+.item19 { 
+    grid-column: 2 / span 4; 
+    grid-row-start: 87; 
+}
+
+/* 20. size2 (幅4 / 高さ20) */
+.item20 { 
+    grid-column: 8 / span 4; 
+    grid-row-start: 96; 
+}
+
+/* 21. size3 (幅3 / 高さ15) */
+.item21 { 
+    grid-column: 9 / span 3; 
+    grid-row-start: 106; 
+}
+
+/* 22. size1 (幅6 / 高さ26) */
+.item22 { 
+    grid-column: 2 / span 6; 
+    grid-row-start: 111; 
+}
+
+/* 23. size3 (幅3 / 高さ15) */
+.item23 { 
+    grid-column: 4 / span 3; 
+    grid-row-start: 105; 
+}
+
+/* 24. size2 (幅4 / 高さ20) */
+.item24 { 
+    grid-column: 9 / span 4; 
+    grid-row-start: 113; 
+}
+
+/* 25. size2 (幅4 / 高さ20) */
+.item25 { 
+    grid-column: 3 / span 4; 
+    grid-row-start: 123; 
+}
+
+/* 26. size2 (幅4 / 高さ20) */
+.item26 { 
+    grid-column: 8 / span 4; 
+    grid-row-start: 124; 
+}
+
+a{
+    display: block;
+    text-align: right;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+}
+
+/* モーダル  */
+
+.modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    overflow: auto; 
+
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.modal.is-active {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    opacity: 1; 
+}
+
+/* ぼかした背景レイヤー */
+.modal-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100; 
+    
+    background-color: rgba(0, 0, 0, 0.4); 
+    background-size: cover;
+    background-position: center;
+    
+    backdrop-filter: none; 
+    -webkit-backdrop-filter: none;
+}
+
+.modal-blur-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    z-index: 1; 
+    
+    backdrop-filter: blur(30px); 
+    -webkit-backdrop-filter: blur(30px);
+    
+    will-change: backdrop-filter;
+    transform: translateZ(0); 
+}
+
+
+/* モーダルコンテンツの本体 */
+.modal-content {
+    border-radius: 0;
+    
+    max-width: 100%; 
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    width: fit-content;
+    height: fit-content;
+    overflow: hidden;
+    position: relative;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 拡大画像 */
+.modal-image {
+    max-width: 100%; 
+    max-height: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+}
+
+/* 「Back」ボタン */
+.modal.is-active {
+    display: flex; 
+    opacity: 1; 
+}
+
+#modal-main-wrapper {
+    display: flex;
+    align-items: center; 
+    max-width: 100%; 
+    max-height: 100%; 
+    z-index: 105; 
+}
+
+/* --- 2-B. 画像ラッパーの調整 --- */
+.modal-content-wrapper {
+  position: relative;
+    z-index: 105; 
+    width: 100%; 
+    height: 100%;
+    
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; /* 水平中央 */
+    align-items: center;   /* 垂直中央 */
+    margin-right: 0;
+
+    background-color: transparent;
+    border-radius: 10px;
+}
+.modal-image{
+ justify-content: center;
+    align-items: center;
+}
+
+/* --- 2-C. 「Back」ボタンのスタイル修正 --- */
+.modal-close {
+    position: absolute; 
+    top: auto; 
+    left: 10px;
+    transform: none;
+    
+    font-size: 1.2rem;
+    font-family: didot;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+    writing-mode: vertical-rl; /* 縦書き */
+    text-orientation: mixed;
+    z-index: 120;
+}
+
+
+/* 768px以上の画面幅の場合のスタイル */
+@media (min-width: 768px){
+.global-header{
+    padding: 30px 30px 0 30px;
+}
+
+.modal.is-active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal-main-wrapper {
+    position: relative; /* 子要素の絶対配置の基準にする */
+    z-index: 105; 
+    max-width: 100%; 
+    max-height: 100%; 
+}
+
+.modal-content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    position: relative;
+    z-index: 101; 
+    margin-right: 5px; 
+    max-width: 100%; 
+    max-height: 100%;
+    width: fit-content;
+    height: fit-content;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    max-width: 90vw; /* 例: 画面幅の90% */
+    max-height: 85vh; /* 例: 画面高さの85% */
+
+    /* 画像 (570px) を内包するコンテナ */
+    display: flex;
+    justify-content: center; /* 横方向の中央寄せ */
+    align-items: center;     /* 縦方向の中央寄せ */
+    
+    width: auto; 
+    height: auto; 
+    box-sizing: border-box;
+}
+
+.modal-image {
+    width: 570px; 
+    height: auto; 
+    
+    max-width: 100%; 
+    max-height: 100%;
+    
+    display: block;
+    object-fit: contain;
+}
+
+.modal-close {
+    font-size: 2.4rem;
+    position: absolute; 
+    left: 50%;  
+    transform: translateX(-320px);
+    top: 50%;
+    transform: translate(-320px, -50%);
+    z-index: 120;
+    
+    writing-mode: vertical-rl;
+}
+
+/* size1: 最も幅広のアイテム  */
+.size1 {
+    grid-column: span 8; 
+    grid-row-end: span 64; 
+}
+
+/* size2: 中間の幅のアイテム  */
+.size2 {
+    grid-column: span 8; 
+    grid-row-end: span 48;
+}
+
+/* size3: 最も幅の狭いアイテム  */
+.size3 {
+    grid-column: span 8; 
+    grid-row-end: span 32;
+}
+
+    
+
+.gallery-container {
+        grid-auto-rows: 10px !important; 
+        margin-bottom: 80px;
+        grid-template-columns: repeat(24, 1fr); 
+ }
+
+/* 1. size1  */
+.item1 { 
+    grid-column: 4 / span 8;
+    grid-row-start: 4; 
+}
+
+/* 2. size3 (幅3 / 高さ15) */
+.item2 { 
+    grid-column: 16 / span 4; 
+    grid-row-start: 10; 
+}
+
+/* 3. size3 (幅3 / 高さ15) */
+.item3 { 
+    grid-column: 6 / span 4; 
+    grid-row-start: 80; 
+}
+
+/* 4. size2 (幅4 / 高さ20) */
+.item4 { 
+    grid-column: 16 / span 6; 
+    grid-row-start: 60; 
+}
+
+/* 5. size2 (幅4 / 高さ20) */
+.item5 { 
+    grid-column: 7 / span 6; 
+    grid-row-start: 120; 
+}
+
+/* 6. size3 (幅3 / 高さ15) */
+.item6 { 
+    grid-column: 15 / span 4; 
+    grid-row-start: 130; 
+}
+
+/* 7. size1 (幅6 / 高さ26) */
+.item7 { 
+    grid-column: 14 / span 8; 
+    grid-row-start: 195; 
+}
+
+/* 8. size2 (幅4 / 高さ20) */
+.item8 { 
+    grid-column: 4 / span 6; 
+    grid-row-start: 200; 
+}
+
+/* 9. size2 (幅4 / 高さ20) */
+.item9 { 
+    grid-column: 6 / span 6; 
+    grid-row-start: 260; 
+}
+
+/* 10. size3 (幅3 / 高さ15) */
+.item10 { 
+    grid-column: 15 / span 4; 
+    grid-row-start: 280; 
+}
+
+/* 11. size1 (幅6 / 高さ26) */
+.item11 { 
+    grid-column: 4 / span 8; 
+    grid-row-start: 340; 
+}
+
+/* 12. size2 (幅4 / 高さ20) */
+.item12 { 
+    grid-column: 15 / span 6; 
+    grid-row-start: 345; 
+}
+
+/* 13. size3 (幅3 / 高さ15) */
+.item13 { 
+    grid-column: 13 / span 4; 
+    grid-row-start: 415; 
+}
+
+/* 14. size2 (幅4 / 高さ20) */
+.item14 { 
+    grid-column: 14 / span 6; 
+    grid-row-start: 490; 
+}
+
+/* 15. size1 (幅6 / 高さ26) */
+.item15 { 
+    grid-column: 4 / span 8; 
+    grid-row-start: 470; 
+}
+
+/* 16. size2 (幅4 / 高さ20) */
+.item16 { 
+    grid-column: 5 / span 6; 
+    grid-row-start: 600; 
+}
+
+/* 17. size1 (幅6 / 高さ26) */
+.item17 { 
+    grid-column: 14 / span 8; 
+    grid-row-start: 570; 
+}
+
+/* 18. size2 (幅4 / 高さ20) */
+.item18 { 
+    grid-column: 15 / span 6; 
+    grid-row-start: 700; 
+}
+
+/* 19. size2 (幅4 / 高さ20) */
+.item19 { 
+    grid-column: 4 / span 6; 
+    grid-row-start: 690; 
+}
+
+/* 20. size2 (幅4 / 高さ20) */
+.item20 { 
+    grid-column: 6 / span 6; 
+    grid-row-start: 780; 
+}
+
+/* 21. size3 (幅3 / 高さ15) */
+.item21 { 
+    grid-column: 15 / span 4; 
+    grid-row-start: 860; 
+}
+
+/* 22. size1 (幅6 / 高さ26) */
+.item22 { 
+    grid-column: 4 / span 8; 
+    grid-row-start: 880; 
+}
+
+/* 23. size3 (幅3 / 高さ15) */
+.item23 { 
+    grid-column: 17 / span 4; 
+    grid-row-start: 930; 
+}
+
+/* 24. size2 (幅4 / 高さ20) */
+.item24 { 
+    grid-column: 7 / span 6; 
+    grid-row-start: 960; 
+}
+
+/* 25. size2 (幅4 / 高さ20) */
+.item25 { 
+    grid-column: 5 / span 6; 
+    grid-row-start: 1040; 
+}
+
+/* 26. size2 (幅4 / 高さ20) */
+.item26 { 
+    grid-column: 15 / span 6; 
+    grid-row-start: 1050; 
+}
+}
+
+/* アバウト */
+.portfolio {
+    margin-bottom: 30px; 
+    text-align: center;
+}
+
+.portfolio img {
+    max-width: 100%; 
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* モデル詳細 */
+.profile-list {
+    display: flex;
+    flex-direction: column; 
+    max-width: 1000px; 
+    margin: 0 auto 50px; 
+}
+
+/* 各リスト (日・英)  */
+.list_jp, .list_en {
+    width: 100%; 
+    margin-top: 30px;
+    box-sizing: border-box; 
+   background-color: transparent; /* 背景を透明にする（明示的に設定） */
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* (dt/dd) のスタイル */
+dt {
+    color: #000;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+dd {
+    color: #000; 
+    font-size: 1.5rem;
+    margin-left: 0;
+    /* ★ 下線を削除 */
+    border-bottom: none; 
+    padding-bottom: 5px;
+}
+
+.profile-list dd {
+    border-bottom: 1px solid #ccc;
+}
+
+/* 経歴のリストのスタイル */
+.list_jp dd ul, .list_en dd ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 5px 0 0;
+}
+
+.list_jp dd ul li, .list_en dd ul li {
+    font-size: 1.5rem;
+    line-height: 1.8;
+}
+
+/* --- PC (768px以上) 向けの調整 --- */
+@media (min-width: 768px) {
+.portfolio {
+    margin-bottom: 50px; 
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.portfolio img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; 
+ }
+
+ .profile-list {
+    margin-top: 100px; 
+    flex-direction: row; 
+    justify-content: space-between;
+    gap: 40px; 
+}
+
+
+.list_jp, .list_en {
+    flex: 1; /* 均等な幅を確保 */
+    width: auto; /* flexアイテムとして機能させる */
+}
+
+.about_title h1 {
+    font-size: 3.6rem;
+}
+}
+
+/* コンタクト */
+.contact-page-body {
+    overflow: hidden !important; 
+    height: 100vh; /* ビューポート高さを確保 */
+}
+.contact_img_2 {
+    display: none;
+}
+
+.contact_img_1 {
+    max-width: 110px; 
+    height: auto;
+    object-fit: cover;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    float: right; 
+}
+
+.contact-page-container p {
+    color: #000;
+    text-align: left;
+}
+
+.contact-page-container p::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.address {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    color: #000;
+    font-size: 1.5rem;
+    padding-left: 0;
+    display: table;
+    width: 100%;
+}
+
+.address dt, .address dd {
+    margin: 0;
+    font-weight: normal; 
+    color: #000;
+}
+
+.address dd {
+    margin: 0;
+    font-weight: normal;
+    color: #000;
+    font-size: 1.3rem;
+}
+
+.address dt {
+    width: 80px; 
+    margin-right: 10px; 
+}
+
+.address dd {
+    display: table-cell;
+    margin-bottom: 5px;
+}
+
+.address a {
+    text-decoration: none; 
+    color: #000;
+    font-size: 1.5rem;
+    margin-bottom: 0; 
+    display: table-row;
+    text-align: left; 
+}
+
+.address a dt, .address a dd {
+   display: table-cell;
+}
+
+/* 5. Copyright */
+.copy {
+    position: fixed;
+    bottom: 30px;
+    margin-left: 30px;
+    left: 0;
+    right: 0;
+    text-align: left; 
+    color: #000;
+    font-size: 1.2rem;
+}
+
+/* コンタクトpc */
+@media (min-width: 1125px) {
+.contact-page-container {
+    padding-top: 150px;
+    max-width: 1400px; /* 必要に応じて調整 */
+    margin: 0 auto;
+    padding: 0; 
+
+    position: relative; 
+    display: block; 
+    min-height: 900px;
+}
+    
+    /* ポラロイド風フレーム */
+.contact-polaroid-frame {
+    display: block; 
+    position: absolute; 
+    top: 50%;
+    left: 70px; 
+    transform: translateY(-50%);
+    
+    width: 508px; /* 白枠の幅 */
+    height: 799px; /* 白枠の高さ */
+    background-color: #fff; 
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); 
+    
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    margin-top: 30px;
+    padding-bottom: 60px; 
+    box-sizing: border-box; 
+}
+
+.contact-page-container::before {
+    content: ""; 
+    position: absolute;
+    top: 80px; 
+    left: 670px; 
+    height: 800px; 
+    width: 1px; 
+    background-color: #000;
+    z-index: 5;
+}
+
+.contact-info {
+    position: absolute;
+    top: 80px; 
+    left: 700px; 
+    width: 450px; 
+    box-sizing: border-box;
+}
+
+.contact-info p {
+    color: #000;
+    font-size: 1.5rem; 
+    line-height: 1.8;
+    margin: 0 0 50px 0; 
+    padding-right: 50px;
+}
+
+.contact-info .address {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%; 
+}
+
+.contact-info .address dt,
+.contact-info .address dd,
+.contact-info .address a {
+    font-size: 1.5rem;
+}
+
+.copy {
+    position: absolute; 
+    bottom: 30px; 
+    left: 700px; 
+    margin-top: 0; 
+}
+
+.contact_img_1 {
+    display: block; /* PCでも表示する */
+    position: absolute; 
+    
+    bottom: 50px; /* ページ下端からのマージン */
+    right: 30px; /* ページ右端からのマージン */
+    
+    max-width: 150px; 
+    height: auto;
+    
+    float: none; 
+    margin: 0; 
+    z-index: 10; 
+}
+
+.contact-polaroid-frame .contact_img_2 {
+    display: block;
+    width: 440px; 
+    height: 659px; 
+    object-fit: cover;
+}
+
+.globalnav-list{
+    gap: 88px;
+}
+}
